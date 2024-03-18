@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
     public function index()
     {
-        # code
+        return Categoria::all();
     }
 
     public function store(Request $request)
@@ -23,7 +24,7 @@ class CategoriaController extends Controller
 
     public function update(Request $request, $id)
     {
-        # code   
+        # code
     }
 
     public function destroy($id)
