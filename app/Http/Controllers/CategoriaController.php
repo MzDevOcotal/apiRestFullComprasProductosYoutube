@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Responses\ApiResponse;
 
 class CategoriaController extends Controller
 {
     public function index()
     {
-        return Categoria::all();
+        $categorias = Categoria::all();
+        return ApiResponse::success('Categorias obtenidas', 200, $categorias);
     }
 
     public function store(Request $request)
