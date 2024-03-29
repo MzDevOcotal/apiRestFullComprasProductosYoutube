@@ -3,10 +3,11 @@
 namespace App\Http\Responses;
 
 /**Clase para generar Respuesta */
-class ApiResponse {
+class ApiResponse
+{
 
     /**Método para enviar una respuestas Satisfactoria al Navegador */
-    public static function success ($message = 'Success', $statusCode =200, $data = ['HOla', 'Mundo'])
+    public static function success($message = 'Success', $statusCode = 200, $data = [])
     {
         return response()->json([
             'message' => $message,
@@ -17,7 +18,7 @@ class ApiResponse {
     }
 
     /**Método para enviar una respuestas de Error al Navegador */
-    public static function error ($message = 'Error', $statusCode, $data = [])
+    public static function error($message = 'Error', $statusCode, $data = [])
     {
         return response()->json([
             'message' => $message,
@@ -26,5 +27,4 @@ class ApiResponse {
             'data' => $data
         ], $statusCode);
     }
-
 }
