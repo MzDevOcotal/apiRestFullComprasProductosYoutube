@@ -25,4 +25,8 @@ use App\Http\Controllers\CompraController;
 Route::apiResource('marcas', MarcaController::class);
 Route::apiResource('categorias', CategoriaController::class);
 Route::apiResource('productos', ProductoController::class);
-Route::resource('compras', CompraController::class);
+Route::apiResource('compras', CompraController::class);
+
+Route::get('categorias/{categoria}/productos/', [CategoriaController::class, 'productosPorCategoria']);
+Route::get('marcas/{marca}/productos/', [MarcaController::class, 'productosPorMarca']);
+Route::get('compras/{compra}/', [CompraController::class, 'compraUnica']);

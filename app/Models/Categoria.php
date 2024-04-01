@@ -10,7 +10,7 @@ class Categoria extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre','descripcion'
+        'nombre', 'descripcion'
     ];
 
     public function productos() // Una Categoría puede tener muchos productos asociados.

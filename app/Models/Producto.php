@@ -13,7 +13,7 @@ class Producto extends Model
         'nombre', 'descripcion', 'precio', 'cantidad_disponible', 'categoria_id', 'marca_id'
     ];
 
-    public function categoria() // Un Producto pertenece a una única Categoría.
+    public function categoria() // Un Producto pertenece(belongsTo) a una única Categoría.
     {
         return $this->belongsTo(Categoria::class);
     }
@@ -23,7 +23,7 @@ class Producto extends Model
         return $this->belongsTo(Marca::class);
     }
 
-    public function compras() // Un Producto puede pertenecer a varias instancias de Compra y viceversa.
+    public function compras() // Un Producto puede pertenecer a varias (belongsToMany) instancias de Compra y viceversa.
     {
         return $this->belongsToMany(Compra::class)->withPivot('precio', 'cantidad', 'subtotal')->withTimestamps();
     }

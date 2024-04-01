@@ -15,7 +15,7 @@ class ProductoController extends Controller
     public function index()
     {
         try {
-            $productos = Producto::all();
+            $productos = Producto::with('marca', 'categoria')->get();
             return ApiResponse::success('Productos Listados Correctamente', 200, $productos);
         } catch (Exception $e) {
             return ApiResponse::error('Error al listar los productos', 500);
